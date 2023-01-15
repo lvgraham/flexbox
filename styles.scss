@@ -23,7 +23,7 @@ $bp : (
 
 //Changing The Default Settings..
 *{
-  margin:0px;
+  margin:10px;
   padding: 0px;
   box-sizing: border-box;
   
@@ -92,19 +92,15 @@ $bp : (
 //LEVEL 2 SCSS
 .level2-container{
   display: flex;
-  margin-bottom: 20px;
 
   //to set orientation of the items
   flex-direction: row;
 
-  //to distribute available space
-  justify-content: space-evenly;
-  padding: $padding;
-  border: 1vh solid $color;
+  //to distribute on the left side
+  justify-content: flex-end;
 
   //style rules starts from Tablet screens
   @include query(tablet){
-    height: 100vh;
     //changing orientation of the items
     flex-direction: column;
     align-items: center;
