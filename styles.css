@@ -43,7 +43,6 @@
 }
 
 .level2-container {
-  font-size: 35px;
   display: flex;
   margin-bottom: 20px;
   flex-direction: row;
@@ -65,6 +64,7 @@
   flex-direction: row;
   gap: 4vh;
   padding: 4vh;
+  border: 4px solid #48CAE4;
 }
 @media (max-width: 480px) {
   .level3-container {
@@ -76,7 +76,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid #48CAE4;
+  border: 1px solid black;
   height: 92vh;
 }
 @media (max-width: 480px) {
@@ -98,12 +98,15 @@
   flex-direction: column;
   padding: 4vh;
   gap: 4vh;
+  border: 1vh solid #48CAE4;
 }
 
 [class^=cardblock-] {
   display: flex;
   flex-direction: row;
   gap: 4vh;
+  border: 1px solid black;
+  padding: 4vh;
   height: 28vh;
 }
 @media (max-width: 480px) {
@@ -116,7 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1vh solid #48CAE4;
+  border: 5px solid pink;
   border-radius: 10px;
   background-color: #c1c1c1;
 }
@@ -149,19 +152,22 @@
   flex-direction: column;
   gap: 4vh;
   padding: 4vh;
+  border: 1vh solid #48CAE4;
 }
 
 [class^=five-cardblock-] {
   display: flex;
   flex-direction: row;
   gap: 4vh;
+  border: 1px solid black;
+  padding: 4vh;
 }
 
 [class^=five-cardbox-] {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1vh solid #48CAE4;
+  border: 1vh solid pink;
   border-radius: 10px;
 }
 
