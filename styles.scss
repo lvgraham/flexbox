@@ -32,7 +32,7 @@ $bp : (
     width: 100%;
     min-height: 100vh;
     font-family: sans-serif;
-    font-size: 45px;
+    font-size: 25px;
   }
 }
 
@@ -56,9 +56,11 @@ $bp : (
   //to lay boxes in a row
   display: flex;
   flex-direction: row;
+  padding: $padding;
+  border: 1px solid black;
 
   //removing borader (1vh+1vh), gap, & padding from the height, then equally distributing spaces between the .block-* classes by dividing it by 3;
-  height: (100vh-2vh -$gap*2-$padding&2)/3;
+  // height: (100vh-2vh -$gap*2-$padding&2)/3;
 
   //putting gap between .box-* classes;
   gap: $gap;
@@ -91,6 +93,7 @@ $bp : (
 .level2-container{
   font-size: 35px;
   display: flex;
+  margin-bottom: 20px;
 
   //to set orientation of the items
   flex-direction: row;

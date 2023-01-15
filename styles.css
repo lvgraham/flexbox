@@ -7,7 +7,7 @@
   width: 100%;
   min-height: 100vh;
   font-family: sans-serif;
-  font-size: 45px;
+  font-size: 25px;
 }
 
 .level1-container {
@@ -21,7 +21,8 @@
 [class^=block-] {
   display: flex;
   flex-direction: row;
-  height: 86vh [class^=block-] 2/3;
+  padding: 4vh;
+  border: 1px solid black;
   gap: 4vh;
 }
 @media (max-width: 480px) {
@@ -44,6 +45,7 @@
 .level2-container {
   font-size: 35px;
   display: flex;
+  margin-bottom: 20px;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 4vh;
