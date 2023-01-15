@@ -1,0 +1,279 @@
+//define the border color, gap, and padding values in your variables.
+$gap : 4vh;
+$padding : 4vh;
+$color : #48CAE4;
+
+//define various screen breakpoints in the SCSS map
+$bp : (
+  mobile : 480px,
+  tablet : 768px,
+  desktop : 1440px,
+);
+
+@mixin query($display){
+  @each $key, $value in $bp{
+    
+    //  defining max-width
+    @if ($display == $key){
+      @media (max-width: $value){@content;}
+    }
+  }
+}
+//adding info to add push
+
+//Changing The Default Settings..
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+  
+// Changing the body here
+  body{
+    width: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-size: 45px;
+  }
+}
+
+//-------------------------------------------------
+
+//LEVEL 1 SCSS
+//style rules for container class
+.level1-container{
+  display: flex;
+  //to lay .block-* classes in a column
+  flex-direction: column;
+  //setting gap between the .block-* classes
+  gap: $gap;
+  //to set some padding & border inside
+  padding: $padding;
+  border: 1vh solid $color;
+}
+
+
+[class ^="block-"]{
+  //to lay boxes in a row
+  display: flex;
+  flex-direction: row;
+
+  //removing borader (1vh+1vh), gap, & padding from the height, then equally distributing spaces between the .block-* classes by dividing it by 3;
+  height: (100vh-2vh -$gap*2-$padding&2)/3;
+
+  //putting gap between .box-* classes;
+  gap: $gap;
+
+  // Style rules for mobile display
+
+  @include query (mobile){
+    flex-direction: column;
+    // you can pick any value you wish.
+    height: 500px;
+  }
+}
+
+[class ^="box-"]{
+  //to set the text at center of every box
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //to divide spaces among the boxes - 33.33% each
+  flex-basis: (100%)/3;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #c1c1c1;
+}
+
+//-------------------------------------------------
+
+//LEVEL 2 SCSS
+.level2-container{
+  font-size: 35px;
+  display: flex;
+
+  //to set orientation of the items
+  flex-direction: row;
+
+  //to distribute available space
+  justify-content: space-evenly;
+  padding: $padding;
+  border: 1vh solid $color;
+
+  //style rules starts from Tablet screens
+  @include query(tablet){
+    height: 100vh;
+    //changing orientation of the items
+    flex-direction: column;
+    align-items: center;
+
+    //setting gap for items Vertically
+    gap: $gap;
+  }
+}
+
+//-------------------------------------------------
+
+//LEVEL 3 CSS
+.level3-container{
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+  padding: $padding;
+
+  //style rule for mobile display
+  @include query(mobile){
+    flex-direction: column;
+  }
+}
+
+[class ^="sidebar-"]{
+  //to put the left, right text at center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid $color;
+
+  //setting height of each block
+  height: 100vh -$padding*2;
+
+  //style rules for mobile display
+  @include query(mobile){
+    height: 50vh -$padding*2;
+  }
+}
+
+//style rules left-block
+.sidebar-1{
+  //will occupy 20% of the available width
+  flex-grow: 2;
+}
+
+//style rules right-block
+.sidebar-2{
+  //will occupy 80% of the available width
+  flex-grow: 8;
+}
+
+//-------------------------------------------------
+
+//LEVEL 4 CSS
+.level4-container{
+  display: flex;
+  flex-direction: column;
+  padding: $padding;
+  gap: $gap;
+}
+
+//select all card blocks
+[class ^="cardblock-"]{
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+
+  //removing padding, gap, and divide by 3
+  height: (100vh -$gap*2 -$padding*2)/3;
+
+  //style rules for mobile version
+  @include query(mobile){
+    flex-direction: column;
+  }
+}
+
+//select all card boxes
+[class ^="cardbox-"]{
+  //to place the letter at center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  //border, border-radius, & background-color
+  border: 1vh solid $color;
+  border-radius: 10px;
+  background-color: #c1c1c1;
+}
+
+//individually target card boxes to use flex-basis to distribute screen space
+//A
+.cardbox-1{
+  flex-basis: 100%;
+}
+
+//B & D
+.cardbox-2, .cardbox-5{
+  flex-basis: 70%;
+}
+
+//E & C
+.cardbox-3, .cardbox-4{
+  flex-basis: 30%;
+}
+
+//style rules for mobile version
+@include query(mobile){
+  .cardblock-2{
+    height: (100vh*2)/3;
+  }
+
+  .cardblock-3{
+    flex-direction: row;
+  }
+
+  .cardbox-2, .cardbox-3, .cardbox-4, .cardbox-5{
+    flex-basis: 50%;
+  }
+}
+
+//-------------------------------------------------
+
+//LEVEL 5 CSS
+
+.level5-container{
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  padding: $padding;
+}
+
+[class ^="five-cardblock-"]{
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}
+
+[class ^="five-cardbox-"]{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1vh solid $color;
+  border-radius: 10px;
+}
+
+.five-cardbox-1, .five-cardbox-5{
+  flex-basis: 100%;
+  height: 20vh;
+}
+
+.five-cardbox-3{
+  flex-basis: 60%;
+  height: 60vh -$gap*2-$padding*2;
+}
+
+.five-cardbox-2, .five-cardbox-4{
+  flex-basis: 20%;
+}
+
+//media query for mobile screen
+@include query(mobile){
+  .five-cardblock-2{
+    flex-direction: column;
+    height: 60vh;
+  }
+  .five-cardbox-2{
+    display: none;
+  }
+
+  .five-cardbox-3{
+    flex-basis: 80%;
+  }
+}
